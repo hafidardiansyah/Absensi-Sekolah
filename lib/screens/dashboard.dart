@@ -1,10 +1,11 @@
-import 'package:absensi_sekolah/components/rounded_profile_button.dart';
-import 'package:absensi_sekolah/screens/school_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:absensi_sekolah/utilities/layout.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button.dart';
+import 'package:absensi_sekolah/screens/absent_details.dart';
+import 'package:absensi_sekolah/screens/profile_student.dart';
+import 'package:absensi_sekolah/components/donut_pie_chart.dart';
+import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -12,140 +13,208 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int _selectedIndex = 0;
-  List<Widget> _widgetOptions = <Widget>[
-    Stack(children: [
-      Positioned(
-        top: 0,
-        left: 0,
-        child: SvgPicture.asset("assets/images/sun.svg"),
-      ),
-      Positioned(
-          top: 80,
-          left: -10,
-          child: SvgPicture.asset("assets/images/house.svg")),
-      Container(
-        width: double.infinity,
-        height: SizeConfig.screenHeight * 0.15,
-        margin: EdgeInsets.symmetric(
-          vertical: SizeConfig.blockVertical * 3,
-        ),
-        child: Column(
-          children: [
-            RoundedProfileButton(
-              image: AssetImage("assets/images/profile.png"),
-              desc: "desc",
-              onTap: () {},
-              title: "title",
-            )
-          ],
-        ),
-      ),
-      Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          width: double.infinity,
-          height: SizeConfig.blockVertical * 50,
-          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30), topRight: Radius.circular(30))),
-          child: SingleChildScrollView(
-            child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Pengumuman",
-                    style: TextStyle(
-                      fontSize: SizeConfig.blockVertical * 2.2,
-                      color: blackColor,
-                      fontFamily: "Poppins-Medium",
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-              RoundedSelectionButton(
-                title: "Pengumuman",
-                desc: "24 Oct 20",
-                icon: Icons.file_copy,
-                onTap: () {},
-              ),
-            ]),
-          ),
-        ),
-      ),
-    ]),
-    Text("Hello2"),
-  ];
-
-  void _onItemTab(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
-    // TODO Bottom navigation
-    // TODO Cart
-    // TODO Profile
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-      backgroundColor: lightColor,
-      resizeToAvoidBottomInset: false,
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded), title: Text("Dashboard")),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.supervised_user_circle_rounded),
-              title: Text("Daftar Guru")),
-        ],
-        onTap: _onItemTab,
-        selectedItemColor: darkColor,
-        currentIndex: _selectedIndex,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        splashColor: darkColor,
-        backgroundColor: primaryColor,
-        child: Icon(Icons.qr_code_scanner),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: _widgetOptions.elementAt(_selectedIndex),
-    );
+        backgroundColor: lightColor,
+        body: Stack(children: [
+          Positioned(
+            top: 0,
+            left: 0,
+            child: SvgPicture.asset("assets/images/sun.svg"),
+          ),
+          Positioned(
+              left: -2,
+              top: size.height * 0.18,
+              child: SvgPicture.asset("assets/images/house.svg")),
+          Column(
+            children: [
+              SizedBox(height: size.height * 0.04),
+              RoundedProfileButtonV2(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ProfileStudent();
+                  }));
+                },
+                conColor: whiteColor,
+                name: "Hafid",
+                status: "Status",
+                image: AssetImage("assets/images/ig.png"),
+              ),
+              SizedBox(height: size.height * 0.02),
+              Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                      margin: EdgeInsets.only(bottom: 10),
+                      width: 350,
+                      child: Text("Absensi saya",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: blackColor,
+                            fontFamily: "Poppins-SemiBold",
+                          )))),
+              Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: lightColor,
+                    offset: Offset(0, 10),
+                    blurRadius: 30,
+                  )
+                ], color: whiteColor, borderRadius: BorderRadius.circular(30)),
+                width: 350,
+                height: 180,
+                child: Row(
+                  children: [
+                    Container(
+                        width: 180,
+                        height: 180,
+                        child: DonutPieChart.withSampleData()),
+                    Container(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        // color: Colors.red,
+                        width: 160,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Keterangan",
+                                  style: TextStyle(
+                                      fontFamily: "Poppins-Medium",
+                                      fontSize: 14)),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.circle,
+                                    color: Colors.blue,
+                                  ),
+                                  Text("Masuk",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins-Medium",
+                                          fontSize: 12)),
+                                  Icon(
+                                    Icons.circle,
+                                    color: Colors.green,
+                                  ),
+                                  Text("Telat",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins-Medium",
+                                          fontSize: 12)),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Icon(
+                                    Icons.circle,
+                                    color: Colors.yellow,
+                                  ),
+                                  Text("Izin",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins-Medium",
+                                          fontSize: 12)),
+                                  Icon(
+                                    Icons.circle,
+                                    color: Colors.red,
+                                  ),
+                                  Text("Tidak masuk",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins-Medium",
+                                          fontSize: 12)),
+                                ],
+                              ),
+                              Material(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(30),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return AbsentDetails();
+                                    }));
+                                  },
+                                  splashColor: darkColor,
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Container(
+                                    height: size.height * 0.05,
+                                    width: size.width * 0.4,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          "Detail",
+                                          style: TextStyle(
+                                            color: whiteColor,
+                                            fontFamily: "Poppins-SemiBold",
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.navigate_next,
+                                          color: whiteColor,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ])),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+                width: double.infinity,
+                height: size.height * 0.45,
+                padding: EdgeInsets.only(left: 20, right: 20, top: 30),
+                decoration: BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30))),
+                child: SingleChildScrollView(
+                    child: Column(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Pengumuman",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: blackColor,
+                          fontFamily: "Poppins-Medium",
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: size.height * 0.015,
+                  ),
+                  RoundedSelectionButtonV2(
+                    allSize: 17,
+                    desc: "14-10-20",
+                    onTap: () {},
+                    title: "Rapot semester 2",
+                    icon: Icons.insert_drive_file,
+                  ),
+                  RoundedSelectionButtonV2(
+                    allSize: 17,
+                    desc: "26-06-20",
+                    onTap: () {},
+                    title: "Surat PKL",
+                    icon: Icons.insert_drive_file,
+                  ),
+                ]))),
+          )
+        ]));
   }
 }

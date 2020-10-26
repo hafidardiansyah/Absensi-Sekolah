@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:absensi_sekolah/utilities/layout.dart';
+import 'package:absensi_sekolah/screens/sign_in.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/screens/signin.dart';
-import 'package:absensi_sekolah/components/rounded_input_field.dart';
+import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:absensi_sekolah/components/rounded_filter_button.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button.dart';
+import 'package:absensi_sekolah/components/rounded_search_field_v2.dart';
+import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
 
 class SchoolList extends StatefulWidget {
   @override
@@ -15,11 +15,11 @@ class SchoolList extends StatefulWidget {
 class _SchoolListState extends State<SchoolList> {
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: lightColor,
       resizeToAvoidBottomInset: false,
+      backgroundColor: lightColor,
       body: Stack(
         children: [
           Positioned(
@@ -28,27 +28,26 @@ class _SchoolListState extends State<SchoolList> {
             child: SvgPicture.asset("assets/images/sun.svg"),
           ),
           Positioned(
-              left: -10,
-              top: 80,
-              child: SvgPicture.asset("assets/images/house.svg")),
+              left: -1502,
+              top: 150,
+              child: SvgPicture.asset(
+                "assets/images/house.svg",
+                width: 2000,
+              )),
           Container(
+            margin: EdgeInsets.symmetric(vertical: size.height * 0.05),
             width: double.infinity,
-            height: SizeConfig.screenHeight * 0.15,
-            margin: EdgeInsets.symmetric(
-              vertical: SizeConfig.blockVertical * 3,
-            ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
                   "Pilih sekolah kamu!",
                   style: TextStyle(
-                    fontSize: SizeConfig.blockVertical * 2.5,
+                    fontSize: 24,
                     color: blackColor,
-                    fontFamily: "Poppins-SemiBold",
+                    fontFamily: "Poppins-Bold",
                   ),
                 ),
-                RoundedInputField(
+                RoundedSearchFieldV2(
                   icon: Icons.search,
                   color: primaryColor,
                   conColor: whiteColor,
@@ -59,107 +58,67 @@ class _SchoolListState extends State<SchoolList> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              width: double.infinity,
-              height: SizeConfig.blockVertical * 50,
-              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
-              child: SingleChildScrollView(
-                child: Column(children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Daftar Sekolah",
-                        style: TextStyle(
-                          fontSize: SizeConfig.blockVertical * 2.2,
-                          color: blackColor,
-                          fontFamily: "Poppins-Medium",
-                        ),
-                      ),
-                      RoundedFilterButton(
-                        press: () {},
-                      )
-                    ],
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 4 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 3 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 4 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 3 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 4 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                  RoundedSelectionButton(
-                    title: "SMKN 3 Malang",
-                    desc: "Malang",
-                    icon: Icons.school,
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Signin();
-                      }));
-                    },
-                  ),
-                ]),
+        ],
+      ),
+      bottomSheet: SolidBottomSheet(
+          headerBar: Container(
+            height: 30,
+            color: whiteColor,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Icon(
+                Icons.minimize,
+                color: blackColor,
               ),
             ),
           ),
-        ],
-      ),
+          showOnAppear: true,
+          body: Container(
+              color: whiteColor,
+              width: double.infinity,
+              padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: SingleChildScrollView(
+                  child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Daftar sekolah",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: blackColor,
+                        fontFamily: "Poppins-Medium",
+                      ),
+                    ),
+                    RoundedFilterButton(
+                      allSize: 14,
+                      onTap: () {},
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.015,
+                ),
+                RoundedSelectionButtonV2(
+                  allSize: 17,
+                  desc: "Kec. Kepanjen, Malang,",
+                  icon: Icons.school,
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return SignIn();
+                    }));
+                  },
+                  title: "SMKN 1 Kepanjen",
+                ),
+                RoundedSelectionButtonV2(
+                  allSize: 17,
+                  desc: "Kec. Kepanjen, Malang,",
+                  onTap: () {},
+                  title: "SMAN 1 Kepanjen",
+                  icon: Icons.school,
+                ),
+              ])))),
     );
   }
 }

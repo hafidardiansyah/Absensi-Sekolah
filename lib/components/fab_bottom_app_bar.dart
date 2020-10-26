@@ -102,10 +102,10 @@ class FabBottomAppBarState extends State<FabBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Icon(item.iconData, color: color, size: widget.iconSize),
+                Icon(item.iconData, color: Colors.blue, size: widget.iconSize),
                 Text(
                   item.text,
-                  style: TextStyle(color: color),
+                  style: TextStyle(color: Colors.red),
                 )
               ],
             ),

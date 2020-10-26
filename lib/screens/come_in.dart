@@ -1,4 +1,4 @@
-import 'package:absensi_sekolah/components/rounded_filter_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_filter_button.dart';
 import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,7 @@ class _ComeInState extends State<ComeIn> {
                       fontFamily: "Poppins-Medium",
                     )),
               ])),
-              RoundedFilterButtonV2(
+              RoundedFilterButton(
                 allSize: 16,
                 onTap: () {},
               )

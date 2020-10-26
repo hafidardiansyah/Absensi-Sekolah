@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:absensi_sekolah/screens/introv2.dart';
+import 'package:absensi_sekolah/screens/intro.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 
 class Splash extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SplashState extends State<Splash> {
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) {
-          return IntroV2();
+          return Intro();
         }),
       );
     });

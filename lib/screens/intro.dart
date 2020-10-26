@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:absensi_sekolah/ui/base_widget.dart';
-import 'package:absensi_sekolah/utilities/layout.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:absensi_sekolah/screens/school_list.dart';
 import 'package:absensi_sekolah/components/rounded_button_v2.dart';
@@ -9,52 +7,58 @@ import 'package:absensi_sekolah/components/rounded_button_v2.dart';
 class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Size size = MediaQuery.of(context).size;
 
-    return BaseWidget(builder: (context, sizingInformation) {
-      return Scaffold(
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Absensi Siswa",
+            style: TextStyle(
+              fontSize: 32,
+              color: primaryColor,
+              fontFamily: "Poppins-Bold",
+            ),
+          ),
+          elevation: 0,
+          centerTitle: true,
+          toolbarHeight: 100,
+          backgroundColor: whiteColor,
+        ),
         body: Container(
-          height: SizeConfig.screenHeight,
+          height: size.height,
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Absensi Siswa",
-                style: TextStyle(
-                  fontSize: SizeConfig.blockVertical * 4,
-                  color: primaryColor,
-                  fontFamily: "Poppins-Bold",
-                ),
+              SvgPicture.asset(
+                "assets/images/data.svg",
+                width: size.width * 0.8,
               ),
               SizedBox(
-                height: SizeConfig.blockVertical * 1,
-              ),
-              Center(
-                child: SvgPicture.asset(
-                  "assets/images/data.svg",
-                  width: SizeConfig.screenWidth * 0.80,
-                ),
-              ),
-              SizedBox(
-                height: SizeConfig.blockVertical * 1,
+                height: size.height * 0.1,
               ),
               Text(
                 "Ayo kelola kehadiran kamu!",
                 style: TextStyle(
-                  fontSize: SizeConfig.blockVertical * 2.8,
+                  fontSize: 22,
                   color: blackColor,
                   fontFamily: "Poppins-SemiBold",
                 ),
               ),
+              SizedBox(
+                height: size.height * 0.005,
+              ),
               Text(
                 "Lebih mudah dan efesien mengelola \nkehadiran kamu di sekolah.",
                 style: TextStyle(
-                  fontSize: SizeConfig.blockVertical * 2,
+                  fontSize: 14,
                   color: blackColor,
                   fontFamily: "Poppins-Regular",
                 ),
                 textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: size.height * 0.01,
               ),
               RoundedButtonV2(
                 onPress: () {
@@ -65,12 +69,15 @@ class Intro extends StatelessWidget {
                 },
                 text: "Lanjut",
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Column(
                 children: [
                   Text(
                     "Dengan menggunakan aplikasi ini, kamu",
                     style: TextStyle(
-                      fontSize: SizeConfig.blockVertical * 1.5,
+                      fontSize: 12,
                       color: blackColor,
                       fontFamily: "Poppins-Regular",
                     ),
@@ -83,7 +90,7 @@ class Intro extends StatelessWidget {
                         Text(
                           "menyetujui ",
                           style: TextStyle(
-                            fontSize: SizeConfig.blockVertical * 1.5,
+                            fontSize: 12,
                             color: blackColor,
                             fontFamily: "Poppins-Regular",
                           ),
@@ -91,7 +98,7 @@ class Intro extends StatelessWidget {
                         Text(
                           "Ketentuan Layanan ",
                           style: TextStyle(
-                            fontSize: SizeConfig.blockVertical * 1.5,
+                            fontSize: 12,
                             color: darkColor,
                             fontFamily: "Poppins-Regular",
                           ),
@@ -99,7 +106,7 @@ class Intro extends StatelessWidget {
                         Text(
                           "dan ",
                           style: TextStyle(
-                            fontSize: SizeConfig.blockVertical * 1.5,
+                            fontSize: 12,
                             color: blackColor,
                             fontFamily: "Poppins-Regular",
                           ),
@@ -107,7 +114,7 @@ class Intro extends StatelessWidget {
                         Text(
                           "Ketentuan Privasi.",
                           style: TextStyle(
-                            fontSize: SizeConfig.blockVertical * 1.5,
+                            fontSize: 12,
                             color: darkColor,
                             fontFamily: "Poppins-Regular",
                           ),
@@ -119,8 +126,6 @@ class Intro extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      );
-    });
+        ));
   }
 }

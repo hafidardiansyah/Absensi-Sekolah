@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/layout.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/rounded_navigation_button.dart';
 
 class RoundedProfileButton extends StatelessWidget {
   final String desc;

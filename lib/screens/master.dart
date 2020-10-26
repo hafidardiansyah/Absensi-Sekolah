@@ -1,7 +1,7 @@
 import 'package:absensi_sekolah/screens/list_teacher.dart';
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/screens/dashboardv2.dart';
+import 'package:absensi_sekolah/screens/dashboard.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 import 'package:absensi_sekolah/components/fab_bottom_app_bar.dart';
 
@@ -20,7 +20,7 @@ class _MasterState extends State<Master> {
   }
 
   final List<Widget> _widgetOptions = <Widget>[
-    Dashboardv2(),
+    Dashboard(),
     ListTeacher(),
   ];
 

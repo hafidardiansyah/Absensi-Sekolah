@@ -1,50 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:absensi_sekolah/utilities/layout.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 
 class RoundedFilterButton extends StatelessWidget {
-  final Function press;
+  final Function onTap;
+  final double allSize;
 
-  const RoundedFilterButton({
+  RoundedFilterButton({
     Key key,
-    this.press,
+    this.onTap,
+    this.allSize,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Size size = MediaQuery.of(context).size;
+    final double newWidtSize = allSize * 5.6;
+    final double newHeightSize = allSize * 2.5;
+    final double newIconSize = allSize + 6;
 
-    return Container(
-        width: SizeConfig.blockHorizontal * 25,
-        height: SizeConfig.blockVertical * 5,
-        margin: EdgeInsets.symmetric(
-          vertical: SizeConfig.blockVertical * 1,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: FlatButton(
-              onPressed: press,
-              color: superLightColor,
-              padding: EdgeInsets.symmetric(
-                horizontal: SizeConfig.blockVertical * 1,
+    return Material(
+      color: superLightColor,
+      borderRadius: BorderRadius.circular(30),
+      child: InkWell(
+        onTap: onTap,
+        splashColor: primaryColor,
+        borderRadius: BorderRadius.circular(30),
+        child: Container(
+          width: size.width * 0 + newWidtSize,
+          height: size.height * 0 + newHeightSize,
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(Icons.filter_list, color: primaryColor, size: newIconSize),
+              Text(
+                "Filter",
+                style: TextStyle(
+                  fontSize: allSize,
+                  color: blackColor,
+                  fontFamily: "Poppins-Medium",
+                ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    Icons.filter_list,
-                    color: primaryColor,
-                  ),
-                  Text(
-                    "Filter",
-                    style: TextStyle(
-                      fontSize: SizeConfig.blockVertical * 2,
-                      color: blackColor,
-                      fontFamily: "Poppins-Medium",
-                    ),
-                  ),
-                ],
-              )),
-        ));
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,9 +1,7 @@
-import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
-import 'package:absensi_sekolah/screens/dashboardv2.dart';
+import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/screens/master.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:flutter/material.dart';
+import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
 
 class ProfileStudent extends StatefulWidget {
   @override
@@ -59,10 +57,10 @@ class _ProfileStudentState extends State<ProfileStudent> {
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               CircleAvatar(
-                radius: 52,
-                backgroundColor: grey4Color,
+                radius: 65,
+                backgroundColor: lightColor,
                 child: CircleAvatar(
-                  radius: 50,
+                  radius: 60,
                   backgroundImage: AssetImage("assets/images/profile.png"),
                 ),
               ),
