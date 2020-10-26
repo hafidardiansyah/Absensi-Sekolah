@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:absensi_sekolah/screens/school_list.dart';
 import 'package:absensi_sekolah/components/rounded_button.dart';
@@ -30,9 +29,11 @@ class Intro extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                "assets/images/data.svg",
-                width: size.width * 0.8,
+              Container(
+                height: size.height * 0.35,
+                child: Image.asset(
+                  "assets/images/data.png",
+                ),
               ),
               SizedBox(
                 height: size.height * 0.1,

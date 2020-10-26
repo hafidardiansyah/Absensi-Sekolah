@@ -72,8 +72,8 @@ class _DashboardState extends State<Dashboard> {
                         height: 180,
                         child: DonutPieChart.withSampleData()),
                     Container(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        // color: Colors.red,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 2),
                         width: 160,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,8 +85,7 @@ class _DashboardState extends State<Dashboard> {
                                       fontSize: 14)),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Icon(
                                     Icons.circle,
@@ -108,7 +107,7 @@ class _DashboardState extends State<Dashboard> {
                               ),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Icon(
                                     Icons.circle,

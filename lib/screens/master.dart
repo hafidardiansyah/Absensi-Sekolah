@@ -34,7 +34,7 @@ class _MasterState extends State<Master> {
             setState(() {});
           },
           tooltip: 'Increment',
-          child: Icon(Icons.add),
+          child: Icon(Icons.qr_code_scanner),
           elevation: 2.0,
           splashColor: darkColor),
       bottomNavigationBar: FabBottomAppBar(

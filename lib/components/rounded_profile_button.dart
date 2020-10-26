@@ -18,28 +18,28 @@ class RoundedProfileButton extends StatelessWidget {
 
     return Align(
       alignment: Alignment.topCenter,
-      child: Container(
-        width: size.width * 0.9,
-        height: size.height * 0.07,
-        margin: EdgeInsets.symmetric(
-          vertical: 5,
-        ),
-        padding: EdgeInsets.symmetric(horizontal: 8),
-        decoration: BoxDecoration(
-            color: conColor, borderRadius: BorderRadius.circular(30)),
-        child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          CircleAvatar(
-            radius: 21,
-            backgroundColor: grey4Color,
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: image,
-            ),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: size.width * 0.9,
+          height: size.height * 0.07,
+          margin: EdgeInsets.symmetric(
+            vertical: 5,
           ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: onTap,
-            child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
+              color: conColor, borderRadius: BorderRadius.circular(30)),
+          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            CircleAvatar(
+              radius: 21,
+              backgroundColor: grey4Color,
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: image,
+              ),
+            ),
+            SizedBox(width: size.width * 0.02),
+            Container(
               width: size.width * 0.65,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +61,8 @@ class RoundedProfileButton extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

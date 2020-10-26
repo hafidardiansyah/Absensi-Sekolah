@@ -55,6 +55,8 @@ flutter:
     - assets/images/ig.png
     - assets/images/ig2.png
     - assets/images/secure_data.png
+    - assets/images/data.png
+    - assets/images/safe_bank.png
     - assets/images/profile.png
     - assets/images/sun.svg
     - assets/images/data.svg
