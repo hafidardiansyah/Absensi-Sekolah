@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/text_field_container.dart';
 
 class RoundedPasswordField extends StatelessWidget {
-  final Color conColor;
   final ValueChanged<String> onChanged;
 
-  const RoundedPasswordField({Key key, this.conColor, this.onChanged})
-      : super(key: key);
+  const RoundedPasswordField({Key key, this.onChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-      conColor: conColor,
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
+      width: size.width * 0.9,
+      margin: EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      decoration: BoxDecoration(
+          color: superLightColor, borderRadius: BorderRadius.circular(30)),
       child: TextField(
         obscureText: true,
         onChanged: onChanged,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/screens/master.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_profile_button.dart';
 
 class ProfileStudent extends StatefulWidget {
   @override
@@ -108,7 +108,7 @@ class _ProfileStudentState extends State<ProfileStudent> {
                   SizedBox(
                     height: size.height * 0.015,
                   ),
-                  RoundedProfileButtonV2(
+                  RoundedProfileButton(
                     name: "Ardi",
                     onTap: () {},
                     conColor: greyColor,

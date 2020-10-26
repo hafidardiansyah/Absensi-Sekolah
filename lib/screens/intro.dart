@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:absensi_sekolah/screens/school_list.dart';
-import 'package:absensi_sekolah/components/rounded_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_button.dart';
 
 class Intro extends StatelessWidget {
   @override
@@ -60,7 +60,7 @@ class Intro extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.01,
               ),
-              RoundedButtonV2(
+              RoundedButton(
                 onPress: () {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
-import 'package:absensi_sekolah/components/rounded_search_field_v2.dart';
+import 'package:absensi_sekolah/components/rounded_profile_button.dart';
+import 'package:absensi_sekolah/components/rounded_search_field.dart';
 
 class ListTeacher extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _ListTeacherState extends State<ListTeacher> {
                   ),
                 ),
                 SizedBox(height: size.height * 0.02),
-                RoundedSearchFieldV2(
+                RoundedSearchField(
                   icon: Icons.search,
                   color: primaryColor,
                   conColor: whiteColor,
@@ -80,14 +80,14 @@ class _ListTeacherState extends State<ListTeacher> {
                   SizedBox(
                     height: size.height * 0.015,
                   ),
-                  RoundedProfileButtonV2(
+                  RoundedProfileButton(
                     onTap: () {},
                     conColor: greyColor,
                     name: "Courtney Henry",
                     status: "XI - XII, Web programming",
                     image: AssetImage("assets/images/profile.png"),
                   ),
-                  RoundedProfileButtonV2(
+                  RoundedProfileButton(
                     onTap: () {},
                     conColor: greyColor,
                     name: "Kristin Watson",

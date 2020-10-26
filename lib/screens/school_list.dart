@@ -4,8 +4,8 @@ import 'package:absensi_sekolah/screens/sign_in.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:absensi_sekolah/components/rounded_filter_button.dart';
-import 'package:absensi_sekolah/components/rounded_search_field_v2.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_search_field.dart';
+import 'package:absensi_sekolah/components/rounded_selection_button.dart';
 
 class SchoolList extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class _SchoolListState extends State<SchoolList> {
                     fontFamily: "Poppins-Bold",
                   ),
                 ),
-                RoundedSearchFieldV2(
+                RoundedSearchField(
                   icon: Icons.search,
                   color: primaryColor,
                   conColor: whiteColor,
@@ -99,7 +99,7 @@ class _SchoolListState extends State<SchoolList> {
                 SizedBox(
                   height: size.height * 0.015,
                 ),
-                RoundedSelectionButtonV2(
+                RoundedSelectionButton(
                   allSize: 17,
                   desc: "Kec. Kepanjen, Malang,",
                   icon: Icons.school,
@@ -111,7 +111,7 @@ class _SchoolListState extends State<SchoolList> {
                   },
                   title: "SMKN 1 Kepanjen",
                 ),
-                RoundedSelectionButtonV2(
+                RoundedSelectionButton(
                   allSize: 17,
                   desc: "Kec. Kepanjen, Malang,",
                   onTap: () {},

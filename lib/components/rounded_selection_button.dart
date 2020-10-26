@@ -1,61 +1,97 @@
-import 'package:absensi_sekolah/components/rounded_navigation_button.dart';
-import 'package:absensi_sekolah/utilities/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/button_container.dart';
 
 class RoundedSelectionButton extends StatelessWidget {
   final String desc;
   final String title;
   final IconData icon;
   final Function onTap;
+  final double allSize;
 
-  const RoundedSelectionButton({
+  RoundedSelectionButton({
     Key key,
     this.desc,
     this.icon,
     this.title,
     this.onTap,
+    this.allSize,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    Size size = MediaQuery.of(context).size;
+    final double newFontSize = allSize / 1.5;
+    final double newHeightContainer = allSize * 3.2;
+    final double newIconSize = allSize * 1.6;
+    final double newIconButtonSize = allSize * 2.7;
 
-    return ButtonContainer(
+    return Container(
+      height: size.height * 0 + newHeightContainer,
+      margin: EdgeInsets.symmetric(
+        vertical: size.height * 0.005,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 5),
+      decoration: BoxDecoration(
+          color: greyColor, borderRadius: BorderRadius.circular(30)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Container(
-          margin: EdgeInsets.only(
-            left: SizeConfig.blockHorizontal * 1.5,
-          ),
-          child: Icon(
-            icon,
-            size: SizeConfig.blockVertical * 4,
-            color: primaryColor,
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(title,
-                style: TextStyle(
-                  fontSize: SizeConfig.blockVertical * 2,
-                  color: blackColor,
-                  fontFamily: "Poppins-Medium",
-                )),
-            Text(desc,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: SizeConfig.blockVertical * 1.5,
-                  color: grey2Color,
-                  fontFamily: "Poppins-Regular",
-                )),
+            ClipOval(
+                child: SizedBox(
+              width: newIconButtonSize,
+              height: newIconButtonSize,
+              child: Icon(
+                icon,
+                color: primaryColor,
+                size: newIconSize,
+              ),
+            )),
+            Material(
+              child: Container(
+                width: size.width * 0.48,
+                color: greyColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(title,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: blackColor,
+                          fontFamily: "Poppins-Medium",
+                          fontSize: allSize,
+                        )),
+                    Text(desc,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: grey2Color,
+                          fontFamily: "Poppins-Regular",
+                          fontSize: newFontSize,
+                        )),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
-        RoundedNavigatonButton(
-          onTap: onTap,
-          icon: Icons.navigate_next,
-        )
+        ClipOval(
+            child: Material(
+          color: primaryColor, // button color
+          child: InkWell(
+            splashColor: darkColor, // inkwell color
+            child: SizedBox(
+              width: newIconButtonSize,
+              height: newIconButtonSize,
+              child: Icon(
+                Icons.navigate_next,
+                color: whiteColor,
+                size: newIconSize,
+              ),
+            ),
+            onTap: onTap,
+          ),
+        )),
       ]),
     );
   }

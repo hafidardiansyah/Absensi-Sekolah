@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 
-class RoundedButtonV2 extends StatelessWidget {
+class RoundedButton extends StatelessWidget {
   final String text;
   final Function onPress;
 
-  const RoundedButtonV2({
+  const RoundedButton({
     Key key,
     this.text,
     this.onPress,
@@ -22,7 +22,7 @@ class RoundedButtonV2 extends StatelessWidget {
         child: FlatButton(
             onPressed: onPress,
             color: primaryColor,
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: EdgeInsets.symmetric(vertical: 12),
             child: Text(
               text,
               style: TextStyle(

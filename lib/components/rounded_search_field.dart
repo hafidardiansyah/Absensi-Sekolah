@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 
-class RoundedSearchFieldV2 extends StatelessWidget {
+class RoundedSearchField extends StatelessWidget {
   final Color color;
   final IconData icon;
   final Color conColor;
@@ -9,7 +9,7 @@ class RoundedSearchFieldV2 extends StatelessWidget {
   final Color hintColor;
   final ValueChanged<String> onChanged;
 
-  const RoundedSearchFieldV2(
+  const RoundedSearchField(
       {Key key,
       this.icon,
       this.color,

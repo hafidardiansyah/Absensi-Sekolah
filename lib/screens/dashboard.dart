@@ -4,8 +4,8 @@ import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:absensi_sekolah/screens/absent_details.dart';
 import 'package:absensi_sekolah/screens/profile_student.dart';
 import 'package:absensi_sekolah/components/donut_pie_chart.dart';
-import 'package:absensi_sekolah/components/rounded_profile_button_v2.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_profile_button.dart';
+import 'package:absensi_sekolah/components/rounded_selection_button.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -32,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
           Column(
             children: [
               SizedBox(height: size.height * 0.04),
-              RoundedProfileButtonV2(
+              RoundedProfileButton(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return ProfileStudent();
@@ -199,14 +199,14 @@ class _DashboardState extends State<Dashboard> {
                   SizedBox(
                     height: size.height * 0.015,
                   ),
-                  RoundedSelectionButtonV2(
+                  RoundedSelectionButton(
                     allSize: 17,
                     desc: "14-10-20",
                     onTap: () {},
                     title: "Rapot semester 2",
                     icon: Icons.insert_drive_file,
                   ),
-                  RoundedSelectionButtonV2(
+                  RoundedSelectionButton(
                     allSize: 17,
                     desc: "26-06-20",
                     onTap: () {},

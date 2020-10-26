@@ -1,5 +1,5 @@
 import 'package:absensi_sekolah/components/rounded_filter_button.dart';
-import 'package:absensi_sekolah/components/rounded_selection_button_v2.dart';
+import 'package:absensi_sekolah/components/rounded_selection_button.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -51,70 +51,70 @@ class _ComeInState extends State<ComeIn> {
             ],
           ),
           SizedBox(height: size.height * 0.02),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
             icon: Icons.location_history,
             onTap: () {},
           ),
-          RoundedSelectionButtonV2(
+          RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",
             title: "title",
