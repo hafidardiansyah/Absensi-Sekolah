@@ -11,36 +11,20 @@ class ComeIn extends StatefulWidget {
 
 class _ComeInState extends State<ComeIn> {
   List<String> countList = [
-    "One",
-    "Two",
-    "Three",
-    "Four",
-    "Five",
-    "Six",
-    "Seven",
-    "Eight",
-    "Nine",
-    "Ten",
-    "Eleven",
-    "Tweleve",
-    "Thirteen",
-    "Fourteen",
-    "Fifteen",
-    "Sixteen",
-    "Seventeen",
-    "Eighteen",
-    "Nineteen",
-    "Twenty"
+    "Agustus",
+    "Juli",
   ];
   List<String> selectedCountList = [];
 
   void _openFilterDialog() async {
     await FilterListDialog.display(context,
         allTextList: countList,
-        height: 480,
-        borderRadius: 20,
-        headlineText: "Select Count",
-        searchFieldHintText: "Search Here",
+        height: 280,
+        borderRadius: 30,
+        headlineText: "Bulan",
+        searchFieldHintText: "Cari",
+        hideSelectedTextCount: true,
+        hideSearchField: true,
         selectedTextList: selectedCountList, onApplyButtonClick: (list) {
       if (list != null) {
         setState(() {
