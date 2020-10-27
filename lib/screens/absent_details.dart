@@ -107,7 +107,7 @@ class _AbsentDetailsState extends State<AbsentDetails>
         bottom: PreferredSize(
             preferredSize: Size.fromHeight(tb().preferredSize.height),
             child: Container(
-                width: double.infinity, color: Colors.white, child: tb())),
+                width: double.infinity, color: whiteColor, child: tb())),
         title: Text(
           "Detail absen",
           style: TextStyle(

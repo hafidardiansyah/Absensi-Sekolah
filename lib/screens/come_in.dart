@@ -15,41 +15,11 @@ class _ComeInState extends State<ComeIn> {
     int number = 25;
 
     return Container(
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       height: size.height,
       width: double.infinity,
-      child: SingleChildScrollView(
-        child: Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                  child: Row(children: [
-                Text("Masuk ",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: blackColor,
-                      fontFamily: "Poppins-Medium",
-                    )),
-                Text(number.toString(),
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: primaryColor,
-                      fontFamily: "Poppins-SemiBold",
-                    )),
-                Text(" x",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: blackColor,
-                      fontFamily: "Poppins-Medium",
-                    )),
-              ])),
-              RoundedFilterButton(
-                allSize: 16,
-                onTap: () {},
-              )
-            ],
-          ),
+      child: Stack(children: [
+        ListView(children: [
           SizedBox(height: size.height * 0.02),
           RoundedSelectionButton(
             allSize: 17,
@@ -122,7 +92,41 @@ class _ComeInState extends State<ComeIn> {
             onTap: () {},
           ),
         ]),
-      ),
+        Container(
+          height: 60,
+          color: whiteColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                  child: Row(children: [
+                Text("Masuk ",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: blackColor,
+                      fontFamily: "Poppins-Medium",
+                    )),
+                Text(number.toString(),
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: primaryColor,
+                      fontFamily: "Poppins-SemiBold",
+                    )),
+                Text(" x",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: blackColor,
+                      fontFamily: "Poppins-Medium",
+                    )),
+              ])),
+              RoundedFilterButton(
+                allSize: 16,
+                onTap: () {},
+              )
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
