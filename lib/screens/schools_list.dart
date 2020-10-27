@@ -6,12 +6,12 @@ import 'package:absensi_sekolah/components/rounded_filter_button.dart';
 import 'package:absensi_sekolah/components/rounded_search_field.dart';
 import 'package:absensi_sekolah/components/rounded_selection_button.dart';
 
-class SchoolListV2 extends StatefulWidget {
+class SchoolsList extends StatefulWidget {
   @override
-  _SchoolListV2State createState() => _SchoolListV2State();
+  _SchoolsListState createState() => _SchoolsListState();
 }
 
-class _SchoolListV2State extends State<SchoolListV2> {
+class _SchoolsListState extends State<SchoolsList> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

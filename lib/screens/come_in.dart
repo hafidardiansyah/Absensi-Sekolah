@@ -20,7 +20,7 @@ class _ComeInState extends State<ComeIn> {
       width: double.infinity,
       child: Stack(children: [
         ListView(children: [
-          SizedBox(height: size.height * 0.02),
+          SizedBox(height: 55),
           RoundedSelectionButton(
             allSize: 17,
             desc: "Desc",

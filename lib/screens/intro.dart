@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/screens/school_list_v2.dart';
+import 'package:absensi_sekolah/screens/schools_list.dart';
 import 'package:absensi_sekolah/components/rounded_button.dart';
 
 class Intro extends StatelessWidget {
@@ -65,7 +65,7 @@ class Intro extends StatelessWidget {
                 onPress: () {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
-                    return SchoolListV2();
+                    return SchoolsList();
                   }));
                 },
                 text: "Lanjut",
