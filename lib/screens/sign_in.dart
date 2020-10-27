@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/screens/master.dart';
-import 'package:absensi_sekolah/screens/school_list.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:absensi_sekolah/components/or_divider.dart';
+import 'package:absensi_sekolah/screens/school_list_v2.dart';
 import 'package:absensi_sekolah/components/social_icon.dart';
 import 'package:absensi_sekolah/components/rounded_button.dart';
 import 'package:absensi_sekolah/components/rounded_input_field.dart';
@@ -50,7 +50,7 @@ class _SignInState extends State<SignIn> {
               onTap: () {
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) {
-                  return SchoolList();
+                  return SchoolListV2();
                 }));
               },
             ),

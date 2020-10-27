@@ -29,14 +29,16 @@ class _MasterState extends State<Master> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await scanner.scan();
-            setState(() {});
-          },
-          tooltip: 'Increment',
-          child: Icon(Icons.qr_code_scanner),
-          elevation: 2.0,
-          splashColor: darkColor),
+        onPressed: () async {
+          await scanner.scan();
+          setState(() {});
+        },
+        elevation: 2.0,
+        splashColor: darkColor,
+        child: Icon(Icons.qr_code_scanner),
+        tooltip: 'Yukk scan qr code sekolah kamu!',
+        backgroundColor: primaryColor,
+      ),
       bottomNavigationBar: FabBottomAppBar(
         onTabSelected: _selectedTab,
         items: [
@@ -46,7 +48,6 @@ class _MasterState extends State<Master> {
               text: "Daftar guru"),
         ],
         notchedShape: CircularNotchedRectangle(),
-        color: Colors.blueGrey,
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
     );

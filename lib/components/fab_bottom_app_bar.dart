@@ -1,3 +1,4 @@
+import 'package:absensi_sekolah/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
 class FabBottomAppBarItem {
@@ -13,8 +14,6 @@ class FabBottomAppBar extends StatefulWidget {
     this.height: 60.0,
     this.iconSize: 24.0,
     this.backgroundColor,
-    this.color,
-    this.selectedColor,
     this.notchedShape,
     this.onTabSelected,
   }) {
@@ -25,8 +24,8 @@ class FabBottomAppBar extends StatefulWidget {
   final double height;
   final double iconSize;
   final Color backgroundColor;
-  final Color color;
-  final Color selectedColor;
+  final Color color = primaryColor;
+  final Color selectedColor = darkColor;
   final NotchedShape notchedShape;
   final ValueChanged<int> onTabSelected;
 
