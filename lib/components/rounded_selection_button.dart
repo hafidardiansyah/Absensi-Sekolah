@@ -3,7 +3,7 @@ import 'package:absensi_sekolah/utilities/constants.dart';
 
 class RoundedSelectionButton extends StatelessWidget {
   final String desc;
-  final String title;
+  final String position;
   final IconData icon;
   final Function onTap;
   final double allSize;
@@ -12,7 +12,7 @@ class RoundedSelectionButton extends StatelessWidget {
     Key key,
     this.desc,
     this.icon,
-    this.title,
+    this.position,
     this.onTap,
     this.allSize,
   }) : super(key: key);
@@ -55,7 +55,7 @@ class RoundedSelectionButton extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(title,
+                    Text(position,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: blackColor,
