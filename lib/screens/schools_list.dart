@@ -99,13 +99,13 @@ class _SchoolsListState extends State<SchoolsList> {
                           return SignIn();
                         }));
                       },
-                      position: "SMKN 1 Kepanjen",
+                      title: "SMKN 1 Kepanjen",
                     ),
                     RoundedSelectionButton(
                       allSize: 17,
                       desc: "Kec. Kepanjen, Malang,",
                       onTap: () {},
-                      position: "SMAN 1 Kepanjen",
+                      title: "SMAN 1 Kepanjen",
                       icon: Icons.school,
                     ),
                   ]))),

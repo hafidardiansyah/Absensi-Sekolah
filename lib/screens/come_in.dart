@@ -59,7 +59,7 @@ class _ComeInState extends State<ComeIn> {
                             desc: selectedCountList[index],
                             icon: Icons.location_history,
                             onTap: () {},
-                            position: selectedCountList[index],
+                            title: selectedCountList[index],
                           ),
                         );
                       },

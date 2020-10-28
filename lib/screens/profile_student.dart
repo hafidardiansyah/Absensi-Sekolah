@@ -1,21 +1,172 @@
 import 'package:flutter/material.dart';
 import 'package:absensi_sekolah/screens/master.dart';
 import 'package:absensi_sekolah/utilities/constants.dart';
-import 'package:absensi_sekolah/components/rounded_profile_button.dart';
 
 class ProfileStudent extends StatefulWidget {
   @override
   _ProfileStudentState createState() => _ProfileStudentState();
 }
 
-class _ProfileStudentState extends State<ProfileStudent> {
+class _ProfileStudentState extends State<ProfileStudent>
+    with SingleTickerProviderStateMixin {
+  final colors = [
+    Colors.blue,
+    Colors.green,
+    Colors.yellow,
+    Colors.orange,
+    Colors.red,
+    Colors.purple
+  ];
+  Color indicatorColor;
+  TabController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(length: _itemTb.length, vsync: this)
+      ..addListener(() {
+        setState(() {
+          indicatorColor = colors[_controller.index];
+        });
+      });
+    indicatorColor = colors[0];
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  final List<Tab> _itemTb = <Tab>[
+    Tab(
+      child: Text(
+        "Senin",
+        style: TextStyle(
+            color: blackColor, fontSize: 18, fontFamily: "Poppins-Medium"),
+      ),
+    ),
+    Tab(
+      child: Text(
+        "Selasa",
+        style: TextStyle(
+            color: blackColor, fontSize: 18, fontFamily: "Poppins-Medium"),
+      ),
+    ),
+    Tab(
+      child: Text(
+        "Rabu",
+        style: TextStyle(
+            color: blackColor, fontSize: 18, fontFamily: "Poppins-Medium"),
+      ),
+    ),
+    Tab(
+      child: Text(
+        "Kamis",
+        style: TextStyle(
+            color: blackColor, fontSize: 18, fontFamily: "Poppins-Medium"),
+      ),
+    ),
+    Tab(
+      child: Text(
+        "Jum'at",
+        style: TextStyle(
+            color: blackColor, fontSize: 18, fontFamily: "Poppins-Medium"),
+      ),
+    ),
+  ];
+
+  final _itemTv = [
+    Center(
+        child: Text(
+      "1",
+      style: TextStyle(fontSize: 40),
+    )),
+    Center(
+        child: Text(
+      "2",
+      style: TextStyle(fontSize: 40),
+    )),
+    Center(
+        child: Text(
+      "3",
+      style: TextStyle(fontSize: 40),
+    )),
+    Center(
+        child: Text(
+      "2",
+      style: TextStyle(fontSize: 40),
+    )),
+    Center(
+        child: Text(
+      "3",
+      style: TextStyle(fontSize: 40),
+    )),
+  ];
+
+  TabBar tb() {
+    return TabBar(
+      controller: _controller,
+      isScrollable: true,
+      indicator: UnderlineTabIndicator(
+          borderSide: BorderSide(width: 3.0, color: indicatorColor),
+          insets: EdgeInsets.symmetric(horizontal: 20.0)),
+      tabs: _itemTb,
+    );
+  }
+
+  TabBarView tv() {
+    return TabBarView(
+      controller: _controller,
+      children: _itemTv,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          bottom: PreferredSize(
+            child: Column(children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                CircleAvatar(
+                  radius: 65,
+                  backgroundColor: lightColor,
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundImage: AssetImage("assets/images/profile.png"),
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hafid ardiansyah",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: blackColor,
+                        fontFamily: "Poppins-Medium",
+                      ),
+                    ),
+                    Text(
+                      "Siswa, XII RPL 3",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: blackColor,
+                        fontFamily: "Poppins-Regular",
+                      ),
+                    ),
+                  ],
+                )
+              ]),
+              PreferredSize(
+                  preferredSize: Size.fromHeight(tb().preferredSize.height),
+                  child: Container(
+                      width: double.infinity, color: whiteColor, child: tb())),
+            ]),
+          ),
           title: Text(
             "Profile",
             style: TextStyle(
@@ -27,7 +178,7 @@ class _ProfileStudentState extends State<ProfileStudent> {
           elevation: 0,
           leadingWidth: 90,
           centerTitle: true,
-          toolbarHeight: 100,
+          toolbarHeight: 278,
           backgroundColor: whiteColor,
           leading: Container(
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
@@ -53,72 +204,6 @@ class _ProfileStudentState extends State<ProfileStudent> {
             )),
           ),
         ),
-        body: Column(
-          children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              CircleAvatar(
-                radius: 65,
-                backgroundColor: lightColor,
-                child: CircleAvatar(
-                  radius: 60,
-                  backgroundImage: AssetImage("assets/images/profile.png"),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hafid ardiansyah",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: blackColor,
-                      fontFamily: "Poppins-Medium",
-                    ),
-                  ),
-                  Text(
-                    "Siswa, XII RPL 3",
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: blackColor,
-                      fontFamily: "Poppins-Regular",
-                    ),
-                  ),
-                ],
-              )
-            ]),
-            Container(
-              width: double.infinity,
-              height: size.height * 0.65,
-              padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-              child: SingleChildScrollView(
-                child: Column(children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Pesan untuk guru",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: blackColor,
-                          fontFamily: "Poppins-Medium",
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * 0.015,
-                  ),
-                  RoundedProfileButton(
-                    name: "Ardi",
-                    onTap: () {},
-                    conColor: greyColor,
-                    status: "Penjelasan kurang jelas pada materi Algoritma aa",
-                    image: AssetImage("assets/images/profile.png"),
-                  ),
-                ]),
-              ),
-            ),
-          ],
-        ));
+        body: tv());
   }
 }
