@@ -124,11 +124,10 @@ class _ProfileStudentState extends State<ProfileStudent>
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
         appBar: AppBar(
-          bottom: PreferredSize(
+          bottom: PreferredSize( 
+            preferredSize: Size.fromHeight(50),
             child: Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 CircleAvatar(

@@ -37,7 +37,6 @@ class _ComeInState extends State<ComeIn> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     int number = 25;
 
     return Stack(children: [

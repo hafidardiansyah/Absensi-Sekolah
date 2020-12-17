@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
     // DevicePreview.of(context).locale;
 
     return MaterialApp(
-      title: 'Absensi Siswa',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.blue,
