@@ -4,5 +4,5 @@
   <li>Dribbble - hafidardiansyahh</li>
   <li>Instagram - hafidardiansyahh</li>
 </ul>
-<h2>Demo App</h2>
+<h2>Screenshot App</h2>
 <img src="demo.png">
