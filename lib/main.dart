@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:absensi_sekolah/screens/splash.dart';
-
-// void main() {
-//   runApp(DevicePreview(
-//     builder: (context) => MyApp(),
-//   ));
-// }
 
 void main() {
   runApp(MyApp());
@@ -24,7 +17,19 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           textTheme:
               Theme.of(context).textTheme.apply(displayColor: Colors.blue)),
-      home: Splash(),
+      home: Home(),
     );
+  }
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
