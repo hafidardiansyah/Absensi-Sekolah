@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+
+import "screens/onboarding_screen.dart";
 
 void main() {
   runApp(MyApp());
@@ -8,28 +10,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // DevicePreview.of(context).locale;
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: Colors.white,
-          textTheme:
-              Theme.of(context).textTheme.apply(displayColor: Colors.blue)),
-      home: Home(),
+      home: OnboardingScreen(),
     );
-  }
-}
-
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
