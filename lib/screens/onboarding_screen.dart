@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 
-import "../utils/constants.dart";
+import "../utils/design.dart";
+import "../utils/responsive.dart";
 
 class OnboardingScreen extends StatelessWidget {
   @override
@@ -10,8 +11,10 @@ class OnboardingScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("cek", style: displayLarge),
       ),
-      body: SizedBox(
-        child: SvgPicture.asset("icons/activity.svg"),
+      body: Responsive(
+        mobile: Container(child: Text("This is mobile device")),
+        tablet: Container(child: Text("This is tablet device")),
+        desktop: Container(child: Text("This is desktop device")),
       ),
     );
   }
