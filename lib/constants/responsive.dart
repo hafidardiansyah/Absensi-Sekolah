@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
   final Widget mobile;
@@ -30,11 +30,11 @@ class Responsive extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth >= 1100) {
           return desktop;
-        } else if (constraints.maxWidth >= 650) {
-          return tablet;
-        } else {
-          return mobile;
         }
+        if (constraints.maxWidth >= 650) {
+          return tablet;
+        }
+        return mobile;
       },
     );
   }
