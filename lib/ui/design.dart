@@ -28,10 +28,10 @@ TextStyle displayMedium =
 TextStyle displaySmall =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 24);
 TextStyle textLarge =
-    const TextStyle(fontWeight: FontWeight.w500, fontSize: 18);
+    const TextStyle(fontWeight: FontWeight.w500, fontSize: 20);
 TextStyle textMedium = const TextStyle(fontSize: 16);
 TextStyle textSmall = const TextStyle(fontSize: 14);
 TextStyle textXSmall = const TextStyle(fontSize: 12);
 
 // Padding
-const double defaultPadding = 20.0;
+const double defaultPadding = 18.0;

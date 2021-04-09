@@ -23,7 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  device_preview: ^0.7.1
   flutter_svg: ^0.21.0+1
   lint: ^1.5.3
 
@@ -45,6 +44,7 @@ flutter:
     # - assets/icons/
     # - assets/images/
     - assets/images/data_intro.svg
+    - assets/icons/arrow_left.svg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
