@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'package:device_preview/device_preview.dart';
 
-import 'constants/theme.dart';
+import 'utils/ui/theme.dart';
 import 'screens/onboarding_screen.dart';
 
 void main() => runApp(

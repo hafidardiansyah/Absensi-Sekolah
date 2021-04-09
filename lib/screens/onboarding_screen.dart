@@ -2,8 +2,8 @@ import 'package:absensi_sekolah/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../constants/design.dart';
-import '../constants/responsive.dart';
+import '../utils/ui/design.dart';
+import '../utils/ui/responsive.dart';
 
 class OnboardingScreen extends StatelessWidget {
   @override

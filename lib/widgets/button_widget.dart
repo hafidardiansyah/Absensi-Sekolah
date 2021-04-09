@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/design.dart';
+import '../utils/ui/design.dart';
 
 class ButtonWidget extends StatelessWidget {
   late void Function()? onPressed;
