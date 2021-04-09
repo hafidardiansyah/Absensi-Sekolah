@@ -44,7 +44,13 @@ flutter:
     # - assets/icons/
     # - assets/images/
     - assets/images/data_intro.svg
+    - assets/images/data_login.svg
+    - assets/images/house_home.svg
+    - assets/images/teacher_search.svg
     - assets/icons/arrow_left.svg
+    - assets/icons/profile.svg
+    - assets/icons/lock.svg
+    - assets/icons/hide.svg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

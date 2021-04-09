@@ -21,17 +21,25 @@ Color primary = const Color(0xFF1E88E5);
 Color light = const Color(0xFF6AB7FF);
 
 // Text Style
-TextStyle displayLarge =
-    const TextStyle(fontWeight: FontWeight.w700, fontSize: 48);
 TextStyle displayMedium =
     const TextStyle(fontWeight: FontWeight.w700, fontSize: 32);
 TextStyle displaySmall =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 24);
 TextStyle textLarge =
     const TextStyle(fontWeight: FontWeight.w500, fontSize: 20);
+TextStyle textXLarge =
+    const TextStyle(fontWeight: FontWeight.w500, fontSize: 18);
 TextStyle textMedium = const TextStyle(fontSize: 16);
 TextStyle textSmall = const TextStyle(fontSize: 14);
 TextStyle textXSmall = const TextStyle(fontSize: 12);
 
-// Padding
-const double defaultPadding = 18.0;
+// Size
+const double defaultPadding = 20.0;
+const double screenHeight = 812.0;
+const double screenWidth = 375.0;
+
+// Images
+const String gettingStartedImage = 'assets/images/data_intro.svg';
+const String loginImage = 'assets/images/data_login.svg';
+const String homeImage = 'assets/images/house_home.svg';
+const String searchImage = 'assets/images/teacher_search.svg';

@@ -38,3 +38,9 @@ class Responsive extends StatelessWidget {
     );
   }
 }
+
+// Spacing
+double spacingHeight(double size, double mediaQuerySize) =>
+    (size / 812.0) * mediaQuerySize;
+double spacingWidth(double size, double mediaQuerySize) =>
+    (size / 375.0) * mediaQuerySize;

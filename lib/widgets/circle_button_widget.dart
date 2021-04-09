@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CircleButtonWidget extends StatelessWidget {
-  final Function()? onPressed;
-  final String icon;
-  final double size;
-
   const CircleButtonWidget({
     required this.onPressed,
     required this.icon,
     required this.size,
   });
+  final Function()? onPressed;
+  final String icon;
+  final double size;
 
   @override
   Widget build(BuildContext context) {

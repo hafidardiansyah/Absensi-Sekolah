@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import '../ui/design.dart';
 
 class RoundedButtonWidget extends StatelessWidget {
-  final Function()? onPressed;
-  final String text;
-  final double height;
-  final double width;
-
   const RoundedButtonWidget({
     required this.onPressed,
     required this.text,
     required this.height,
     required this.width,
+    required this.textStyle,
   });
+  final Function()? onPressed;
+  final String text;
+  final double height;
+  final double width;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,12 @@ class RoundedButtonWidget extends StatelessWidget {
         minimumSize: Size(width, height),
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular((height / 2) + 3),
         ),
       ),
       child: Text(
         text,
-        style: textLarge.copyWith(
-            color: white, fontSize: 16, fontWeight: FontWeight.w600),
+        style: textStyle,
       ),
     );
   }
