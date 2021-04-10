@@ -7,6 +7,8 @@ import '../widgets/rouded_button_widget.dart';
 import 'login_screen.dart';
 
 class GettingStartedScreen extends StatefulWidget {
+  static String routeName = '/getting_started_screen';
+
   @override
   _GettingStartedScreenState createState() => _GettingStartedScreenState();
 }
@@ -16,7 +18,6 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(
             'Logo',
@@ -38,24 +39,27 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.only(
-          bottom: defaultPadding,
-          left: defaultPadding,
-          right: defaultPadding,
+        padding: EdgeInsets.only(
+          bottom: spacingWidth(defaultPadding, _size.width),
+          left: spacingWidth(defaultPadding, _size.width),
+          right: spacingWidth(defaultPadding, _size.width),
         ),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SvgPicture.asset(
-                gettingStartedImage,
-                width: _size.width,
+              AspectRatio(
+                aspectRatio: 3 / 2,
+                child: SvgPicture.asset(
+                  gettingStartedImage,
+                  width: _size.width,
+                ),
               ),
-              SizedBox(height: spacingHeight(24.0, _size.height)),
+              SizedBox(height: spacingHeight(36.0, _size.height)),
               Text(
                 'Ayo kelola absensi kamu!',
                 style: displaySmall.copyWith(color: gray1),
               ),
-              SizedBox(height: spacingHeight(8.0, _size.height)),
+              SizedBox(height: spacingHeight(12.0, _size.height)),
               Text(
                 'Lebih mudah dan efesien mengelola absensi kamu di sekolah.',
                 style: textSmall.copyWith(color: gray2),
@@ -64,24 +68,8 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    RoundedButtonWidget(
-                      onPressed: () {
-                        Navigator.pushNamed(context, LoginScreen.routeName);
-                      },
-                      text: "Daftar",
-                      height: 50.0,
-                      width: _size.width / 2.4,
-                      textStyle: textXLarge.copyWith(color: white),
-                    ),
-                    RoundedButtonWidget(
-                      onPressed: () {
-                        Navigator.pushNamed(context, LoginScreen.routeName);
-                      },
-                      text: "Masuk",
-                      height: 50.0,
-                      width: _size.width / 2.4,
-                      textStyle: textXLarge.copyWith(color: white),
-                    ),
+                    _buttonRegister(_size.width),
+                    _buttonLogin(_size.width),
                   ]),
               SizedBox(height: spacingHeight(24.0, _size.height)),
               Text(
@@ -90,6 +78,30 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
               ),
             ]),
       ),
+    );
+  }
+
+  Widget _buttonRegister(double _width) {
+    return RoundedButtonWidget(
+      onPressed: () {
+        Navigator.pushNamed(context, LoginScreen.routeName);
+      },
+      text: "Daftar",
+      height: 50.0,
+      width: _width / 2.4,
+      textStyle: textXLarge.copyWith(color: white),
+    );
+  }
+
+  Widget _buttonLogin(double _width) {
+    return RoundedButtonWidget(
+      onPressed: () {
+        Navigator.pushNamed(context, LoginScreen.routeName);
+      },
+      text: "Masuk",
+      height: 50.0,
+      width: _width / 2.4,
+      textStyle: textXLarge.copyWith(color: white),
     );
   }
 }
