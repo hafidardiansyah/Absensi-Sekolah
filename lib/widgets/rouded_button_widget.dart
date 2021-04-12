@@ -12,8 +12,7 @@ class RoundedButtonWidget extends StatelessWidget {
   });
   final Function()? onPressed;
   final String text;
-  final double height;
-  final double width;
+  final double height, width;
   final TextStyle textStyle;
 
   @override

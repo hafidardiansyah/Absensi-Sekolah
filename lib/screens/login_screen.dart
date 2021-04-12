@@ -1,12 +1,11 @@
-import 'package:absensi_sekolah/screens/getting_started_screen.dart';
-import 'package:flutter/gestures.dart';
+import 'package:absensi_sekolah/screens/example.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../ui/design.dart';
 import '../ui/responsive.dart';
 import '../widgets/rouded_button_widget.dart';
-import '../widgets/circle_button_widget.dart';
+import '../screens/getting_started_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = '/login_screen';
@@ -55,9 +54,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: spacingHeight(12.0, _size.height)),
                   _passwordTextFormField(),
                   SizedBox(height: spacingHeight(24.0, _size.height)),
-                  _buttonRegister(),
+                  _buttonLogin(),
                   SizedBox(height: spacingHeight(24.0, _size.height)),
-                  _textRegister(),
+                  _textRedirectToRegisterScreen(),
                 ],
               ),
             ),
@@ -127,12 +126,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buttonRegister() {
+  Widget _buttonLogin() {
     return RoundedButtonWidget(
       onPressed: () {
-        if (_formKey.currentState!.validate()) {
-          print('oke');
-        }
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Example()));
       },
       text: 'Masuk',
       height: 50.0,
@@ -141,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _textRegister() {
+  Widget _textRedirectToRegisterScreen() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[

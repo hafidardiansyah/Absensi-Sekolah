@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,10 +14,11 @@ class GettingStartedScreen extends StatefulWidget {
 }
 
 class _GettingStartedScreenState extends State<GettingStartedScreen> {
+  final PageController _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    final PageController _pageController = PageController();
 
     return SafeArea(
       child: Scaffold(
@@ -35,61 +34,52 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
             child: Column(
               children: <Widget>[
                 Expanded(
-                  child: Stack(
+                  child: PageView(
+                    controller: _pageController,
                     children: <Widget>[
-                      PageView(
-                        controller: _pageController,
-                        children: <Widget>[
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              AspectRatio(
-                                aspectRatio: 3 / 2,
-                                child: SvgPicture.asset(
-                                  gettingStartedImage,
-                                ),
-                              ),
-                              SizedBox(
-                                  height: spacingHeight(36.0, _size.height)),
-                              Text(
-                                'text',
-                                style: displaySmall.copyWith(color: gray1),
-                              ),
-                              SizedBox(
-                                  height: spacingHeight(12.0, _size.height)),
-                              Text(
-                                'text',
-                                style: textSmall.copyWith(color: gray2),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              AspectRatio(
-                                aspectRatio: 3 / 2,
-                                child: SvgPicture.asset(
-                                  gettingStartedImage,
-                                ),
-                              ),
-                              SizedBox(
-                                  height: spacingHeight(36.0, _size.height)),
-                              Text(
-                                'text',
-                                style: displaySmall.copyWith(color: gray1),
-                              ),
-                              SizedBox(
-                                  height: spacingHeight(12.0, _size.height)),
-                              Text(
-                                'text',
-                                style: textSmall.copyWith(color: gray2),
-                              ),
-                            ],
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: defaultPadding),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            AspectRatio(
+                              aspectRatio: 1.3,
+                              child: SvgPicture.asset(gettingStartedImage),
+                            ),
+                            SizedBox(height: spacingHeight(64.0, _size.height)),
+                            Text('Ayo kelola absensi kamu!',
+                                style: displaySmall.copyWith(color: gray1)),
+                            SizedBox(height: spacingHeight(8.0, _size.height)),
+                            Text(
+                                'Lebih mudah dan efesien mengelola absensi kamu di sekolah.',
+                                style: textSmall.copyWith(color: gray2)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: defaultPadding),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            AspectRatio(
+                              aspectRatio: 1.3,
+                              child: SvgPicture.asset(gettingStartedImage),
+                            ),
+                            SizedBox(height: spacingHeight(64.0, _size.height)),
+                            Text('Ayo kelola absensi kamu!',
+                                style: displaySmall.copyWith(color: gray1)),
+                            SizedBox(height: spacingHeight(8.0, _size.height)),
+                            Text(
+                                'Lebih mudah dan efesien mengelola absensi kamu di sekolah.',
+                                style: textSmall.copyWith(color: gray2)),
+                          ],
+                        ),
                       ),
                     ],
-                    // child:
                   ),
                 ),
                 SizedBox(height: spacingHeight(24.0, _size.height)),
