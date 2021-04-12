@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
           centerTitle: true,
         ),
         body: Align(
-          alignment: Alignment.bottomCenter,
+          alignment: Alignment.center,
           child: SingleChildScrollView(
             padding: EdgeInsets.only(
               bottom: spacingWidth(defaultPadding, _size.width),

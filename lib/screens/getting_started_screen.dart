@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +18,9 @@ class GettingStartedScreen extends StatefulWidget {
 class _GettingStartedScreenState extends State<GettingStartedScreen> {
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
+    final PageController _pageController = PageController();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -25,58 +30,97 @@ class _GettingStartedScreenState extends State<GettingStartedScreen> {
           ),
         ),
         body: Responsive(
-          mobile: _mobile(context),
+          mobile: Container(
+            alignment: Alignment.bottomCenter,
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: Stack(
+                    children: <Widget>[
+                      PageView(
+                        controller: _pageController,
+                        children: <Widget>[
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              AspectRatio(
+                                aspectRatio: 3 / 2,
+                                child: SvgPicture.asset(
+                                  gettingStartedImage,
+                                ),
+                              ),
+                              SizedBox(
+                                  height: spacingHeight(36.0, _size.height)),
+                              Text(
+                                'text',
+                                style: displaySmall.copyWith(color: gray1),
+                              ),
+                              SizedBox(
+                                  height: spacingHeight(12.0, _size.height)),
+                              Text(
+                                'text',
+                                style: textSmall.copyWith(color: gray2),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              AspectRatio(
+                                aspectRatio: 3 / 2,
+                                child: SvgPicture.asset(
+                                  gettingStartedImage,
+                                ),
+                              ),
+                              SizedBox(
+                                  height: spacingHeight(36.0, _size.height)),
+                              Text(
+                                'text',
+                                style: displaySmall.copyWith(color: gray1),
+                              ),
+                              SizedBox(
+                                  height: spacingHeight(12.0, _size.height)),
+                              Text(
+                                'text',
+                                style: textSmall.copyWith(color: gray2),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                    // child:
+                  ),
+                ),
+                SizedBox(height: spacingHeight(24.0, _size.height)),
+                Padding(
+                  padding: EdgeInsets.only(
+                    bottom: spacingWidth(defaultPadding, _size.width),
+                    left: spacingWidth(defaultPadding, _size.width),
+                    right: spacingWidth(defaultPadding, _size.width),
+                  ),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              _buttonRegister(_size.width),
+                              _buttonLogin(_size.width),
+                            ]),
+                        SizedBox(height: spacingHeight(24.0, _size.height)),
+                        Text(
+                          'Dengan menggunakan aplikasi ini, kamu menyetujui Ketentuan Layanan dan Ketentuan Privasi.',
+                          style: textXSmall.copyWith(color: gray2),
+                        ),
+                      ]),
+                )
+              ],
+            ),
+          ),
           tablet: Container(child: Text('This is tablet device')),
           desktop: Container(child: Text('This is desktop device')),
         ),
-      ),
-    );
-  }
-
-  Widget _mobile(BuildContext context) {
-    final Size _size = MediaQuery.of(context).size;
-
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: SingleChildScrollView(
-        padding: EdgeInsets.only(
-          bottom: spacingWidth(defaultPadding, _size.width),
-          left: spacingWidth(defaultPadding, _size.width),
-          right: spacingWidth(defaultPadding, _size.width),
-        ),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 3 / 2,
-                child: SvgPicture.asset(
-                  gettingStartedImage,
-                  width: _size.width,
-                ),
-              ),
-              SizedBox(height: spacingHeight(36.0, _size.height)),
-              Text(
-                'Ayo kelola absensi kamu!',
-                style: displaySmall.copyWith(color: gray1),
-              ),
-              SizedBox(height: spacingHeight(12.0, _size.height)),
-              Text(
-                'Lebih mudah dan efesien mengelola absensi kamu di sekolah.',
-                style: textSmall.copyWith(color: gray2),
-              ),
-              SizedBox(height: spacingHeight(24.0, _size.height)),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _buttonRegister(_size.width),
-                    _buttonLogin(_size.width),
-                  ]),
-              SizedBox(height: spacingHeight(24.0, _size.height)),
-              Text(
-                'Dengan menggunakan aplikasi ini, kamu menyetujui Ketentuan Layanan dan Ketentuan Privasi.',
-                style: textXSmall.copyWith(color: gray2),
-              ),
-            ]),
       ),
     );
   }
